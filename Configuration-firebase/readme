@@ -1,0 +1,7 @@
+1) Vous devez créer un projet dans firebase
+2) remplacez le lien utilisé dans le code par le lien de votre nouveau projet : 
+$scope.FBURL_user = "https://config-firebase.firebaseio.com/users/";  // le lien est à remplacer par le lien de votre projet 
+$scope.FBURL_formule = "https://config-firebase.firebaseio.com/formules/"; // le lien est à remplacer par le lien de votre projet 
+3) ouvrez index.html dans un navigateur.
+
+Ps : vous pouvez tester l'application directement sans avoir besoin  de remplacer les liens

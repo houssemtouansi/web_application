@@ -1,0 +1,74 @@
+<h3> page offre </h3>
+
+<div>
+
+  <div class="col-md-12">
+    <div  ng-controller="controller" ng-init="show_data_formule()">
+      <h3>Chercher un client : </h3>
+
+      <div class="col-md-6">
+              <label>Nom</label>
+              <input type="text" name="nom" ng-model="nom" class="form-control">
+              <br/>
+              <label>Siret</label>
+              <input type="number" name="siret" ng-model="siret" class="form-control">
+              <br/>
+              <label>Adresse</label>
+              <input type="text" name="adresse" ng-model="adresse" class="form-control">
+              <br/>
+              <input type="hidden" ng-model="id">
+              <input type="submit" name="find" class="btn btn-primary" ng-click="find_client()" value="Search">
+              <input type="submit" name="Validate" ng-hide="hide_clients" class="btn btn-primary" ng-click="generate_rapport()"
+              value="Validate">
+              <input type="submit" name="Restart" ng-hide="hide_clients" class="btn btn-primary" ng-click="restart()"
+              value="Restart">
+              <input type="submit" name="Generate_PDF" ng-hide="rapport" class="btn btn-danger " ng-click="pdf()"
+              value="Generate_PDF">
+
+              <div ng-hide ="rapport" id ="exportthis">
+              <p> </p><br/>
+              <p>Rapport finale  </p><br/>
+              <p> Nom : {{client_offre.nom}}</p><br/>
+              <p> prenom : {{client_offre.prenom}}</p>  <br/>
+              <p>  siret: {{client_offre.siret}} </p>  <br/>
+              <p>  adresse:{{client_offre.adresse}} </p><br/>
+              <p>  contact: {{client_offre.contact}} </p><br/>
+              <p>  nbEmploye: {{client_offre.nbEmploye}} </p> <br/>
+              <p>  Prix unitaire: {{client_offre.prix_unitaire}} euros </p> <br/>
+              <p>  Prix totale: {{client_offre.prix_totale}} euros</p> <br/>
+              </div>
+              <br/>
+
+
+
+      </div>
+          <div class="col-md-6">
+              <table class="table table-bordered" ng-hide="hide_clients">
+                  <tr>
+                      <th>Nom</th>
+                      <th>Prenom</th>
+                      <th>Siret</th>
+                      <th>Adresse</th>
+                      <th>Contact</th>
+                      <th>NbEmploye</th>
+                  </tr>
+                  <tr>
+                      <td>{{client.nom}}</td>
+                      <td>{{client.prenom}}</td>
+                      <td>{{client.siret}}</td>
+                      <td>{{client.adresse}}</td>
+                      <td>{{client.contact}}</td>
+                      <td>{{client.nbemploye}}</td>
+                  </tr>
+              </table
+              <div ng-hide="hide_clients">
+                <h3 ng-hide="hide_clients"> Choisir une formule </h3>
+                  <select ng-hide="hide_clients" ng-model="selectedPrix" ng-options="x for x in formules_prix"></select>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,53 @@
+
+<div>
+<h3> page formule </h3>
+
+</div>
+
+<div ng-controller = 'controller'>
+
+      <div class="col-md-12">
+        <div  ng-controller="controller" ng-init="show_data_formule()">
+          <h3>Formules : </h3>
+          <div class="col-md-6">
+                  <label>Formule-id</label>
+                  <input type="number" name="formule_id" ng-model="formule_id" class="form-control">
+                  <br/>
+                  <label>Description formule</label>
+                  <input type="text" name="description" ng-model="description" class="form-control">
+                  <br/>
+                  <label>Prix (en euro)</label>
+                  <input type="number" name="prix" ng-model="prix" class="form-control">
+                  <br/>
+                  <input type="hidden" ng-model="id">
+                  <input type="submit" name="insert" class="btn btn-primary" ng-click="insert_formule()" value="{{btnName}}">
+          </div>
+              <div class="col-md-6">
+                  <table class="table table-bordered">
+                      <tr>
+                          <th>Formule-id</th>
+                          <th>Description</th>
+                          <th>Prix(euro)</th>
+                          <th>Edit</th>
+                          <th>Delete</th>
+                      </tr>
+                      <tr ng-repeat="x in formules">
+                          <td>{{x.formule_id}}</td>
+                          <td>{{x.description}}</td>
+                          <td>{{x.prix}}</td>
+                          <td>
+                              <button class="btn btn-success btn-xs" ng-click="update_data_formule(x.id, x.formule_id, x.description, x.prix)">
+                                  <span class="glyphicon glyphicon-edit"></span> Edit
+                              </button>
+                          </td>
+                          <td>
+                              <button class="btn btn-danger btn-xs" ng-click="delete_data_formule(x.id )">
+                                  <span class="glyphicon glyphicon-trash"></span> Delete
+                              </button>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+</div>

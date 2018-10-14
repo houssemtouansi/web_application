@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Configuration alwaysdata</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		<script src="https://code.angularjs.org/1.4.4/angular-route.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="node_modules/html2canvas/dist/html2canvas.min.js"></script>
+		<script src="bower_components/pdfmake/build/pdfmake.min.js"></script>
+		<script src="bower_components/pdfmake/build/vfs_fonts.js"></script>
+		<script src="node_modules/auth0-js/build/auth0.js"></script>
+		<script src="node_modules/angular-auth0/dist/angular-auth0.js"></script>
+		<script src="node_modules/angular-jwt/dist/angular-jwt.js"></script>
+		<link rel="stylesheet" href="./style.css">
+
+
+
+</head>
+<body ng-app="sa_app" >
+
+<div ng-controller="controller" >
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#/">Configuration alwaysdata</a>
+
+					</div>
+
+					<div   id="navbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
+						<li ng-if ="isAuthenticated() == 'true'">
+							<a href="#/clients">Clients</a>
+						</li>
+						<li ng-if ="isAuthenticated()== 'true'">
+							<a href="#/formules">Formules</a>
+						</li>
+						<li ng-if ="isAuthenticated() == 'true'" >
+							<a href="#/offres">Offres</a>
+						</li>
+						<li ng-if ="isAuthenticated() == 'true'" >
+							<a ng-click = "logout()">Logout</a>
+						</li>
+						<li ng-if ="isAuthenticated() == 'false'">
+							<a ng-click = "login()">Login</a>
+						</li>
+
+
+
+
+						</ul>
+					</div>
+					</div>
+				</nav>
+
+
+
+ </div>
+
+
+				<div class="container starter-template">
+
+		          <div ng-view></div>
+
+					</div>
+
+
+<script src="route.js"></script>
+<script src="js/app.js"></script>
+<script src="auth/auth.service.js"></script>
+
+
+
+
+</body>
+</html>

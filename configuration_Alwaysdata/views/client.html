@@ -1,0 +1,71 @@
+<div>
+<h3> page client </h3>
+
+</div>
+
+<div ng-controller="controller">
+  <div ng-hide ="isAuthenticated() == 'false'">
+    <div class="col-md-12">
+    	<div   ng-init="show_data_client()">
+    <div class="col-md-6">
+      <h3>Clients : </h3>
+            <label>Nom</label>
+            <input type="text" name="nom" ng-model="nom" class="form-control">
+            <br/>
+            <label>Prenom</label>
+            <input type="text" name="prenom" ng-model="prenom" class="form-control">
+            <br/>
+            <label>Siret</label>
+            <input type="number" name="siret" ng-model="siret" class="form-control">
+            <br/>
+            <label>Adresse</label>
+            <input type="text" name="adresse" ng-model="adresse" class="form-control">
+            <br/>
+            <label>Contact</label>
+            <input type="number" name="contact" ng-model="contact" class="form-control">
+            <br/>
+            <label>NbEmploye</label>
+            <input type="number" name="nbemploye" ng-model="nbemploye" class="form-control">
+            <br/>
+            <input type="hidden" ng-model="id">
+            <input type="submit" name="insert" class="btn btn-primary" ng-click="insert_client()" value="{{btnName}}">
+    </div>
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Siret</th>
+                    <th>Adresse</th>
+                    <th>Contact</th>
+                    <th>NbEmploye</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr ng-repeat="x in clients">
+                    <td>{{x.nom}}</td>
+                    <td>{{x.prenom}}</td>
+                    <td>{{x.siret}}</td>
+                    <td>{{x.adresse}}</td>
+                    <td>{{x.contact}}</td>
+                    <td>{{x.nbemploye}}</td>
+                    <td>
+                        <button class="btn btn-success btn-xs" ng-click="update_data_client(x.id, x.nom, x.prenom, x.siret, x.adresse, x.contact,x.nbemploye)">
+                            <span class="glyphicon glyphicon-edit"></span> Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" ng-click="delete_data_client(x.id )">
+                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+            </div>
+        </div>
+  </div>
+
+
+</div>
